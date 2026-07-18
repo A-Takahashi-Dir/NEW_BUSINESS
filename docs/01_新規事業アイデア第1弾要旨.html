@@ -129,6 +129,31 @@
   }
   .num{font-variant-numeric:tabular-nums;}
 
+  /* ---- update rows ---- */
+  .update-rows{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:4px 24px;}
+  .update-row{display:grid;grid-template-columns:160px 1fr;gap:16px;padding:14px 0;border-bottom:1px solid var(--line-soft);}
+  .update-row:last-child{border-bottom:none;}
+  @media (max-width:600px){.update-row{grid-template-columns:1fr;gap:4px;}}
+  .u-label{font-size:13px;font-weight:700;color:var(--accent);padding-top:2px;}
+  .u-body b{font-size:14px;}
+  .u-body p{margin:2px 0 0;font-size:13px;color:var(--muted);line-height:1.8;}
+  .u-body p strong{color:var(--amber);font-weight:600;}
+
+  /* ---- scenario box ---- */
+  .scenario{margin-top:20px;background:var(--surface);border:1px solid var(--accent);border-radius:6px;padding:22px 24px;}
+  .scenario h3{
+    margin:0 0 14px;font-family:var(--serif);font-size:17px;font-weight:600;letter-spacing:.02em;
+  }
+  .scenario-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+  @media (max-width:700px){.scenario-grid{grid-template-columns:1fr;}}
+  .scenario-grid b{display:block;font-size:14px;margin-bottom:4px;color:var(--accent);}
+  .scenario-grid p{margin:0;font-size:13.5px;color:var(--muted);line-height:1.85;}
+  .scenario-conclusion{
+    margin:18px 0 0;padding-top:14px;border-top:1px dashed var(--line);
+    font-size:13.5px;line-height:1.85;
+  }
+  .scenario-conclusion strong{color:var(--amber);font-weight:600;}
+
   /* ---- axes ---- */
   .axes{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
   @media (max-width:700px){.axes{grid-template-columns:1fr;}}
@@ -139,6 +164,11 @@
     font-family:var(--serif);color:var(--accent);font-size:13px;
     letter-spacing:.1em;display:block;margin-bottom:10px;font-weight:600;
   }
+  .exec-band{
+    margin-top:16px;background:var(--chip-bg);border-radius:6px;padding:14px 20px;
+    font-size:13.5px;line-height:1.9;
+  }
+  .exec-band b{color:var(--accent);}
 
   /* ---- categories ---- */
   .cat-head{display:flex;align-items:baseline;gap:18px;border-bottom:1px solid var(--ink);padding-bottom:12px;margin-bottom:4px;}
@@ -154,6 +184,10 @@
   .idea-no{
     display:inline-block;color:var(--accent);font-size:13px;font-weight:700;
     margin-right:10px;font-variant-numeric:tabular-nums;letter-spacing:.04em;
+  }
+  .update-tag{
+    display:inline-block;margin-left:10px;font-size:10.5px;font-weight:700;letter-spacing:.1em;
+    color:var(--amber);border:1px solid var(--amber);border-radius:3px;padding:1px 7px;vertical-align:2px;
   }
   .idea p{margin:0;color:var(--muted);font-size:14px;line-height:1.9;max-width:46em;}
   .idea p strong{color:var(--amber);font-weight:600;}
@@ -180,6 +214,15 @@
   .pill-main{background:var(--amber-bg);color:var(--amber);}
   .prio-row b{font-size:15px;}
   .prio-row p{margin:4px 0 0;font-size:13.5px;color:var(--muted);line-height:1.8;}
+
+  /* ---- deck flow ---- */
+  .deck-flow{display:flex;flex-wrap:wrap;gap:8px;counter-reset:step;margin-top:4px;}
+  .deck-flow span{background:var(--chip-bg);border-radius:4px;padding:4px 12px;font-size:13px;}
+  .deck-flow span::before{
+    counter-increment:step;content:counter(step,decimal-leading-zero);
+    color:var(--accent);font-weight:700;margin-right:7px;font-variant-numeric:tabular-nums;
+  }
+  .deck-note{margin:14px 0 0;font-size:13px;color:var(--muted);line-height:1.85;max-width:46em;}
 
   /* ---- questions ---- */
   .q-list{list-style:none;margin:0;padding:0;counter-reset:q;}
@@ -216,13 +259,14 @@
     <p class="eyebrow">新規事業開発プロジェクト|WEB制作会社の既存アセット活用</p>
     <h1>資産分析と新規事業アイデア<br>第1弾・要旨</h1>
     <div class="doc-meta">
-      <span class="status-chip">討議用ドラフト</span>
-      <span class="num">作成日 2026年7月18日</span>
+      <span class="status-chip">討議用ドラフト 第2版</span>
+      <span class="num">第2版 2026年7月18日(前提回答を反映)</span>
       <span class="num">分析対象: 請求データ 2025年1月〜2026年2月(約100件)</span>
     </div>
     <p class="lede">
       請求データが示すのは、単なるWeb制作会社ではなく<strong>「建設業界の団体・協会のアウトソーシング先」</strong>という姿。
       とりわけ<strong>「建設 × 外国人材 × 教育 × 多言語(8言語)」</strong>という、他のWeb制作会社が持たない交差点に立っている。
+      さらに<strong>親会社がシステム開発会社</strong>というグループ構造により、プロダクトを「作って売る」実行力は既に揃っている。
       この資産を「受託」から「プロダクト・ストック収益」へ転換することが本プロジェクトの主題である。
     </p>
   </header>
@@ -236,6 +280,7 @@
         <ul>
           <li><b>中核顧客:</b> 建設技能人材機構(JAC・最大顧客/講習月額運用<span class="num">690万〜1,459万円/月</span>・粗利<span class="num">60〜71%</span>)、建設業振興基金、KMS ほか</li>
           <li><b>既保有のストック収益:</b> 保守・ホスティング・システム使用料・講習月額運用・修了証の月次業務</li>
+          <li><b>グループ体制:</b> 自社<span class="num">20</span>名+グループ全体<span class="num">300</span>名。親会社がシステム開発会社であり、バックエンド開発のグループ内製ルートを持つ</li>
         </ul>
         <div class="cap-chips">
           <span>8言語の教材制作</span>
@@ -244,23 +289,83 @@
           <span>編集・取材力</span>
           <span>海外現地の実行支援</span>
           <span>印刷×Webの一貫対応</span>
+          <span>グループのシステム開発力</span>
         </div>
       </div>
       <div class="panel caution">
         <h3>構造的課題</h3>
         <ul>
           <li>JAC・振興基金の<b>2者への顧客集中</b>リスク</li>
-          <li>印刷・版下系は大型受注でも<b>粗利<span class="num">8〜30%</span></b>と薄く労働集約的</li>
+          <li>印刷・版下系は大型受注でも<b>粗利<span class="num">8〜30%</span></b>と薄く労働集約的(デジタル化によるカニバリは経営判断として許容済み)</li>
           <li>小口保守に<b>赤字案件</b>あり(粗利率<span class="num">-32%</span>)</li>
-          <li>少人数体制(請求書上の担当者は<span class="num">4</span>名程度)</li>
+          <li>自社単体は<span class="num">20</span>名。新規事業は<b>親会社との商流・役割分担の設計</b>が前提になる</li>
         </ul>
       </div>
     </div>
   </section>
 
   <section>
-    <p class="sec-label">2|方向性の仮説</p>
-    <h2>戦略3軸</h2>
+    <p class="sec-label">2|前提のアップデート(第2版)</p>
+    <h2>確認事項への回答と戦略への含意</h2>
+    <div class="update-rows">
+      <div class="update-row">
+        <span class="u-label">教材・システムの権利</span>
+        <div class="u-body">
+          <b>確認中。自社帰属/クライアント帰属の両パターンを想定</b>
+          <p>下記の「権利シナリオ」で両にらみの設計に変更。どちらでも事業は成立する構造にする。</p>
+        </div>
+      </div>
+      <div class="update-row">
+        <span class="u-label">開発体制</span>
+        <div class="u-body">
+          <b>親会社=システム開発会社。バックエンドはグループ内製または外注</b>
+          <p><strong>本格SaaS開発が現実的な選択肢に。</strong>一方で開発費・収益配分・保守責任など親会社との商流設計が新たな論点になる。</p>
+        </div>
+      </div>
+      <div class="update-row">
+        <span class="u-label">規模と投資スタンス</span>
+        <div class="u-body">
+          <b>自社20名/グループ300名。経営者が納得すれば大型投資も可(ロジカルで硬いタイプ)</b>
+          <p>提案書は市場データ・収益試算・<strong>ステージゲート(段階投資+撤退基準)</strong>で構成し、「小さく検証して基準クリアで増資」の設計にする。</p>
+        </div>
+      </div>
+      <div class="update-row">
+        <span class="u-label">カニバリの許容</span>
+        <div class="u-body">
+          <b>印刷・版下売上を食う提案は全く問題なし</b>
+          <p><strong>A-1(検定申込DXクラウド)の最大の障害が消滅。</strong>優先順位を「対抗」から「本命②」へ格上げ。</p>
+        </div>
+      </div>
+      <div class="update-row">
+        <span class="u-label">提案書の体裁</span>
+        <div class="u-body">
+          <b>全要素が編集可能なPowerPoint形式</b>
+          <p>合意後、編集可能な.pptxとして制作する(構成方針は本書5章)。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="scenario">
+      <h3>権利シナリオ——本命案(A-2/B-5/C-1)の両にらみ設計</h3>
+      <div class="scenario-grid">
+        <div>
+          <b>シナリオ①|権利が自社に帰属する場合</b>
+          <p>既存の8言語教材をそのままプロダクト化する最短ルート。JACへは優遇条件で継続提供し、最重要顧客との関係を維持しながら外販を開始する。</p>
+        </div>
+        <div>
+          <b>シナリオ②|権利がJACに帰属する場合</b>
+          <p>(a)JACとの共同事業化(レベニューシェア/公式教材としての展開)を打診。並行して(b)対訳用語集・制作ノウハウ+C-1のAIパイプラインで、権利のクリーンな新規教材を低コストで再制作し自社IP化する。</p>
+        </div>
+      </div>
+      <p class="scenario-conclusion">
+        <strong>結論:どちらのシナリオでも事業は成立する。</strong>変わるのは立ち上げ速度と初期コストのみ。提案書では両シナリオの試算を並記し、権利確認の結果がいつ出ても提案が止まらない構造にする。
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <p class="sec-label">3|方向性の仮説</p>
+    <h2>戦略3軸と実行体制</h2>
     <div class="axes">
       <div class="axis">
         <span class="axis-no">軸 一</span>
@@ -278,6 +383,9 @@
         <p>制作・運用の中身をAI化し労働集約から脱却。まず内製で実証し、その後外販へ。</p>
       </div>
     </div>
+    <div class="exec-band">
+      <b>実行体制の原則:</b> 自社(20名)=企画・UI/UX・コンテンツ・ドメイン知識・顧客接点/親会社=バックエンド開発・インフラ。グループで「作れて売れる」垂直統合を組み、商流(開発費・収益配分・保守責任)は提案書で明文化する。
+    </div>
   </section>
 
   <section>
@@ -289,12 +397,12 @@
       </div>
     </div>
     <article class="idea">
-      <h3><span class="idea-no">A-1</span>検定・講習申込DXクラウド</h3>
-      <p>紙の検定・講習申込業務(現在は版下・印刷で大型受注中)をオンライン申込+決済+帳票のクラウドへ置き換え、全国の実施団体に月額提供。既存顧客で実証してから横展開。課題は自社印刷売上とのカニバリとセキュリティ要件(ISMS)。</p>
+      <h3><span class="idea-no">A-1</span>検定・講習申込DXクラウド<span class="update-tag">第2版で格上げ</span></h3>
+      <p>紙の検定・講習申込業務(現在は版下・印刷で大型受注中)をオンライン申込+決済+帳票のクラウドへ置き換え、全国の実施団体に月額提供。<strong>カニバリ許容の経営判断と親会社の開発力により障害が消滅。</strong>既存顧客で実証→横展開。残る論点はセキュリティ要件(ISMS)と商流設計。</p>
     </article>
     <article class="idea">
-      <h3><span class="idea-no">A-2</span>多言語安全衛生教育プラットフォーム</h3>
-      <p>8言語の安全衛生教材資産を、建設会社・監理団体・登録支援機関へ月額/人数課金のLMSで直接提供。<strong>JACとの教材権利関係の確認が最優先の前提条件</strong>(確認事項1)。</p>
+      <h3><span class="idea-no">A-2</span>多言語安全衛生教育プラットフォーム<span class="update-tag">更新</span></h3>
+      <p>8言語の安全衛生教材資産を、建設会社・監理団体・登録支援機関へ月額/人数課金のLMSで直接提供。権利シナリオ①なら既存教材で最短立ち上げ、シナリオ②ならJAC共同事業化またはC-1基盤での教材再制作で対応(2章のシナリオ参照)。</p>
     </article>
     <article class="idea">
       <h3><span class="idea-no">A-3</span>講習オンライン化BPaaS</h3>
@@ -341,12 +449,12 @@
       <p>特定技能外国人の生活支援・四半期報告を多言語アプリでホワイトラベル提供。「建設特化+安全教育つき」で既存競合と差別化。</p>
     </article>
     <article class="idea">
-      <h3><span class="idea-no">B-4</span>CBT・オンライン検定プラットフォーム</h3>
-      <p>検定団体向けにCBT試験(出題・監督・採点・合格発表)を提供。自社開発ではなくCBTエンジンのOEM+運用受託から参入する。</p>
+      <h3><span class="idea-no">B-4</span>CBT・オンライン検定プラットフォーム<span class="update-tag">更新</span></h3>
+      <p>検定団体向けにCBT試験(出題・監督・採点・合格発表)を提供。CBTエンジンのOEM活用に加え、<strong>親会社との共同開発による自社エンジン構築も選択肢に。</strong>A-1と同一顧客への段階提案(申込DX→CBT化)が可能。</p>
     </article>
     <article class="idea">
-      <h3><span class="idea-no">B-5</span>安全教育動画ライブラリのライセンス事業</h3>
-      <p>特別教育・技能講習の動画教材を自社IP化し年間ライセンス販売。受託契約を「IP保持+利用権」型へ転換して制作原資を確保する。</p>
+      <h3><span class="idea-no">B-5</span>安全教育動画ライブラリのライセンス事業<span class="update-tag">更新</span></h3>
+      <p>特別教育・技能講習の動画教材を自社IP化し年間ライセンス販売。権利シナリオ②の場合は、新規制作分から「IP保持+利用権」型契約に切り替えて権利ポートフォリオを構築する。</p>
     </article>
     <div class="stub-block">
       <h4>簡易リスト(B-6〜B-10)</h4>
@@ -369,8 +477,8 @@
       </div>
     </div>
     <article class="idea">
-      <h3><span class="idea-no">C-1</span>専門文書AI多言語化サービス</h3>
-      <p>LLM+自社対訳用語集+ネイティブ校閲のハイブリッドで、安全衛生・技術文書の多言語化を翻訳会社の1/3価格・サブスクで提供。8言語の対訳コーパスが参入障壁になり、A-2/B-1/B-5の共通基盤にもなる。</p>
+      <h3><span class="idea-no">C-1</span>専門文書AI多言語化サービス<span class="update-tag">更新</span></h3>
+      <p>LLM+自社対訳用語集+ネイティブ校閲のハイブリッドで、安全衛生・技術文書の多言語化を翻訳会社の1/3価格・サブスクで提供。8言語の対訳コーパスが参入障壁になり、A-2/B-1/B-5の共通基盤に。<strong>権利シナリオ②の際の教材再制作エンジンを兼ねる「保険つき」の基盤投資。</strong></p>
     </article>
     <article class="idea">
       <h3><span class="idea-no">C-2</span>団体向けRAG問い合わせAI</h3>
@@ -410,7 +518,7 @@
     </div>
     <article class="idea">
       <h3><span class="idea-no">D-1</span>教材IPホールディング化</h3>
-      <p>受託を「納品買切り」から「自社IP保持+ライセンス供与」へ契約転換し、教材・動画・システムの権利ポートフォリオを構築する事業方針の転換。</p>
+      <p>受託を「納品買切り」から「自社IP保持+ライセンス供与」へ契約転換し、教材・動画・システムの権利ポートフォリオを構築する事業方針の転換。今回の権利確認を機に、以後の全受託契約の標準方針とする。</p>
     </article>
     <article class="idea">
       <h3><span class="idea-no">D-2</span>建設特化メディア&amp;リードジェン</h3>
@@ -441,63 +549,78 @@
   </section>
 
   <section>
-    <p class="sec-label">3|討議のたたき台</p>
+    <p class="sec-label">4|討議のたたき台(第2版で改訂)</p>
     <h2>優先順位の私見</h2>
     <div class="prio">
       <div class="prio-row">
-        <span class="pill pill-main">本 命</span>
+        <span class="pill pill-main">本命①</span>
         <div>
           <b>A-2 / B-5|多言語安全教育のプロダクト化</b>
-          <p>他社が持たない資産の直接活用。市場(外国人建設労働者)は拡大中。ただし教材権利の確認が前提。</p>
+          <p>他社が持たない資産の直接活用。市場(外国人建設労働者)は拡大中。権利は両シナリオとも成立し、変わるのは速度とコストのみ。</p>
         </div>
       </div>
       <div class="prio-row">
-        <span class="pill">対 抗</span>
+        <span class="pill pill-main">本命②</span>
         <div>
-          <b>A-1|検定申込DXクラウド</b>
-          <p>市場が明確で、紙業務の課題を自社が誰より知っている。既存顧客で実証→全国横展開。</p>
+          <b>A-1|検定申込DXクラウド(対抗から格上げ)</b>
+          <p>カニバリ許容+親会社の開発力で障害が消滅。市場が明確でグループシナジーを最も説明しやすく、ロジカルな経営者への訴求力が高い。B-4(CBT)への段階拡張も描ける。</p>
         </div>
       </div>
       <div class="prio-row">
         <span class="pill">短期の足場</span>
         <div>
           <b>A-4 + C-3|保守のAI化・サブスク化</b>
-          <p>投資最小・即着手可能。粗利改善と「AI運用の実績」づくりを兼ねる。</p>
+          <p>自社20名だけで即着手可能。粗利改善と「AI運用の実績」づくりを兼ね、経営者説得の証拠材料になる。</p>
         </div>
       </div>
       <div class="prio-row">
         <span class="pill">基盤投資</span>
         <div>
           <b>C-1|AI多言語パイプライン</b>
-          <p>単体でも事業になり、本命群(A-2/B-1/B-5)の原価を下げる共通基盤になる。</p>
+          <p>単体でも事業になり、本命①の原価低減と権利シナリオ②時の教材再制作の両方を支える共通基盤。</p>
         </div>
       </div>
     </div>
   </section>
 
   <section>
-    <p class="sec-label">4|要回答</p>
-    <h2>確認したい事項</h2>
+    <p class="sec-label">5|アウトプット設計</p>
+    <h2>提案書(編集可能PowerPoint)の構成方針</h2>
+    <div class="deck-flow">
+      <span>エグゼクティブサマリー</span>
+      <span>現状分析(数字で示す構造課題)</span>
+      <span>市場機会(TAM/SAM/SOM)</span>
+      <span>40案の評価マトリクス</span>
+      <span>推奨案の詳細(本命①②)</span>
+      <span>収益シミュレーション(権利両シナリオ並記)</span>
+      <span>実行体制と親会社との商流</span>
+      <span>ステージゲートと撤退基準</span>
+      <span>ロードマップ</span>
+    </div>
+    <p class="deck-note">
+      ロジカルで硬い経営者に合わせ、「小さく検証し、基準をクリアしたら増資する」段階投資の枠組みを中核に置く。撤退基準を自ら提示することで、大型投資判断の心理的ハードルを下げる。全スライドはテキスト・図版とも編集可能な形式で制作する。
+    </p>
+  </section>
+
+  <section>
+    <p class="sec-label">6|残論点</p>
+    <h2>次に確認・決定したいこと</h2>
     <ol class="q-list">
       <li>
-        <b>教材・システムの権利関係</b>
-        <p>JAC向け多言語教材・オンライン講習の著作権/二次利用権はどちらに帰属しているか。本命案(A-2/B-5/C-1)の成立性に直結する最重要事項。</p>
+        <b>権利確認の結果共有(確認中)</b>
+        <p>判明次第シナリオを確定。それまでは両シナリオ並記で作業を進める。</p>
       </li>
       <li>
-        <b>開発体制</b>
-        <p>バックエンドを含むエンジニアの内製はあるか、外注中心か。SaaS型アイデアの実現方式を左右する。</p>
+        <b>親会社との商流設計</b>
+        <p>開発費の負担、収益配分、保守責任の分担方針。経営者への提案前に、親会社側キーパーソンとの温度感確認を推奨。</p>
       </li>
       <li>
-        <b>会社規模と投資スタンス</b>
-        <p>社員数と、新規事業に割ける人員・予算の目安(小さく検証/中規模投資/大型投資)。</p>
+        <b>経営者の評価軸の解像度</b>
+        <p>過去に「刺さった/刺さらなかった」提案の傾向があれば共有いただきたい。重視するのは投資回収期間か、戦略性か、リスク管理か。</p>
       </li>
       <li>
-        <b>カニバリの許容度</b>
-        <p>印刷・版下売上を食う提案(A-1等)を経営としてどこまで許容できるか。</p>
-      </li>
-      <li>
-        <b>提案書の体裁</b>
-        <p>提出先(経営会議等)、希望フォーマット(PowerPoint/Word/PDF)、提出時期の目安。</p>
+        <b>提出時期と深掘り対象</b>
+        <p>経営会議の日程感と、提案書で深掘りする案の数。推奨は「40案の全体マトリクス+本命①②の2案深掘り」構成。</p>
       </li>
     </ol>
   </section>
@@ -505,7 +628,7 @@
   <footer class="doc-foot">
     <p>
       全文はリポジトリ <code>docs/01_資産分析と新規事業アイデア第1弾ドラフト.md</code>(ブランチ: <code>claude/web-agency-new-business-ideas-wt0no5</code>)を参照。<br>
-      次のステップ: 確認事項への回答 → 方向性の絞り込みと有望案の深掘り(市場規模・収益シミュレーション・ロードマップ)→ 合意後に会社提出用の提案書を制作。
+      次のステップ: 残論点の確認 → 本命①②の深掘り(市場規模・収益シミュレーション・ロードマップ)→ 合意後に編集可能なPowerPoint提案書を制作。
     </p>
   </footer>
 
