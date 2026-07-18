@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>新規事業アイデア 第1弾 要旨</title>
+<style>
+  :root{
+    --bg:#f1f4f6;
+    --surface:#ffffff;
+    --ink:#1b2733;
+    --muted:#5b6b79;
+    --line:#d9e0e6;
+    --line-soft:#e6ebef;
+    --accent:#245d9f;
+    --accent-soft:#e3ecf6;
+    --amber:#a96400;
+    --amber-bg:#f7ecd9;
+    --chip-bg:#eaeff3;
+    --serif:"Hiragino Mincho ProN","Hiragino Mincho Pro","Yu Mincho",YuMincho,"Noto Serif JP","BIZ UDMincho",serif;
+    --sans:"Hiragino Kaku Gothic ProN","Hiragino Sans","Noto Sans JP","Yu Gothic Medium","Yu Gothic",YuGothic,Meiryo,sans-serif;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#0f151b;
+      --surface:#171f28;
+      --ink:#e5ebf1;
+      --muted:#95a4b2;
+      --line:#2b3742;
+      --line-soft:#232e38;
+      --accent:#74a9dd;
+      --accent-soft:#1d2c3c;
+      --amber:#e0a24e;
+      --amber-bg:#33270f;
+      --chip-bg:#222d37;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#0f151b;
+    --surface:#171f28;
+    --ink:#e5ebf1;
+    --muted:#95a4b2;
+    --line:#2b3742;
+    --line-soft:#232e38;
+    --accent:#74a9dd;
+    --accent-soft:#1d2c3c;
+    --amber:#e0a24e;
+    --amber-bg:#33270f;
+    --chip-bg:#222d37;
+  }
+  :root[data-theme="light"]{
+    --bg:#f1f4f6;
+    --surface:#ffffff;
+    --ink:#1b2733;
+    --muted:#5b6b79;
+    --line:#d9e0e6;
+    --line-soft:#e6ebef;
+    --accent:#245d9f;
+    --accent-soft:#e3ecf6;
+    --amber:#a96400;
+    --amber-bg:#f7ecd9;
+    --chip-bg:#eaeff3;
+  }
+  html{background:var(--bg);}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:var(--sans);
+    font-size:15px;
+    line-height:1.9;
+    -webkit-font-smoothing:antialiased;
+  }
+  .page{max-width:860px;margin:0 auto;padding:48px 24px 72px;}
+  a{color:var(--accent);}
+  a:focus-visible{outline:2px solid var(--accent);outline-offset:2px;}
+
+  /* ---- header ---- */
+  .doc-head{border-bottom:1px solid var(--ink);padding-bottom:28px;margin-bottom:8px;}
+  .eyebrow{
+    font-size:12px;letter-spacing:.14em;color:var(--accent);
+    margin:0 0 14px;font-weight:600;
+  }
+  h1{
+    font-family:var(--serif);font-weight:600;
+    font-size:clamp(26px,4.6vw,38px);line-height:1.4;
+    margin:0 0 18px;letter-spacing:.02em;text-wrap:balance;
+  }
+  .doc-meta{display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center;font-size:12.5px;color:var(--muted);}
+  .status-chip{
+    display:inline-block;padding:2px 12px;border:1px solid var(--amber);
+    color:var(--amber);border-radius:999px;font-size:12px;font-weight:600;letter-spacing:.06em;
+  }
+  .lede{
+    font-family:var(--serif);font-size:16.5px;line-height:2.05;
+    margin:26px 0 0;padding:0;
+  }
+  .lede strong{color:var(--accent);font-weight:600;}
+
+  /* ---- sections ---- */
+  section{margin-top:56px;}
+  .sec-label{
+    font-size:12px;letter-spacing:.14em;color:var(--muted);
+    margin:0 0 6px;font-weight:600;
+  }
+  h2{
+    font-family:var(--serif);font-weight:600;font-size:23px;line-height:1.5;
+    margin:0 0 20px;letter-spacing:.02em;text-wrap:balance;
+  }
+
+  /* ---- assets / issues ---- */
+  .two-col{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+  @media (max-width:700px){.two-col{grid-template-columns:1fr;}}
+  .panel{
+    background:var(--surface);border:1px solid var(--line);border-radius:6px;
+    padding:22px 24px;
+  }
+  .panel h3{
+    margin:0 0 12px;font-size:13px;letter-spacing:.12em;font-weight:700;color:var(--accent);
+  }
+  .panel.caution h3{color:var(--amber);}
+  .panel ul{margin:0;padding-left:1.3em;}
+  .panel li{margin:6px 0;}
+  .panel li::marker{color:var(--muted);}
+  .cap-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px;}
+  .cap-chips span{
+    background:var(--chip-bg);border-radius:4px;padding:3px 10px;
+    font-size:12.5px;font-weight:600;
+  }
+  .num{font-variant-numeric:tabular-nums;}
+
+  /* ---- axes ---- */
+  .axes{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+  @media (max-width:700px){.axes{grid-template-columns:1fr;}}
+  .axis{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:20px 20px 18px;}
+  .axis b{display:block;font-size:15px;margin-bottom:8px;}
+  .axis p{margin:0;font-size:13.5px;color:var(--muted);line-height:1.8;}
+  .axis .axis-no{
+    font-family:var(--serif);color:var(--accent);font-size:13px;
+    letter-spacing:.1em;display:block;margin-bottom:10px;font-weight:600;
+  }
+
+  /* ---- categories ---- */
+  .cat-head{display:flex;align-items:baseline;gap:18px;border-bottom:1px solid var(--ink);padding-bottom:12px;margin-bottom:4px;}
+  .cat-letter{
+    font-family:var(--serif);font-size:44px;line-height:1;color:var(--accent);
+    font-weight:600;
+  }
+  .cat-head h2{margin:0;}
+  .cat-head .sec-label{margin:0 0 2px;}
+  .idea{border-bottom:1px solid var(--line-soft);padding:18px 0;}
+  .idea:last-of-type{border-bottom:none;}
+  .idea h3{margin:0 0 6px;font-size:16px;line-height:1.6;}
+  .idea-no{
+    display:inline-block;color:var(--accent);font-size:13px;font-weight:700;
+    margin-right:10px;font-variant-numeric:tabular-nums;letter-spacing:.04em;
+  }
+  .idea p{margin:0;color:var(--muted);font-size:14px;line-height:1.9;max-width:46em;}
+  .idea p strong{color:var(--amber);font-weight:600;}
+  .stub-block{margin-top:6px;padding:16px 0 0;border-top:1px dashed var(--line);}
+  .stub-block h4{margin:0 0 10px;font-size:12px;letter-spacing:.12em;color:var(--muted);font-weight:600;}
+  .stub-list{display:flex;flex-wrap:wrap;gap:8px;}
+  .stub-list span{
+    background:var(--chip-bg);border-radius:4px;padding:4px 12px;font-size:13px;
+  }
+  .stub-list b{color:var(--accent);font-weight:700;margin-right:4px;font-variant-numeric:tabular-nums;}
+
+  /* ---- priority ---- */
+  .prio{display:flex;flex-direction:column;gap:12px;}
+  .prio-row{
+    display:grid;grid-template-columns:118px 1fr;gap:18px;align-items:start;
+    background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:18px 22px;
+  }
+  @media (max-width:600px){.prio-row{grid-template-columns:1fr;gap:8px;}}
+  .pill{
+    display:inline-block;text-align:center;padding:3px 0;border-radius:999px;
+    font-size:12.5px;font-weight:700;letter-spacing:.08em;
+    background:var(--accent-soft);color:var(--accent);
+  }
+  .pill-main{background:var(--amber-bg);color:var(--amber);}
+  .prio-row b{font-size:15px;}
+  .prio-row p{margin:4px 0 0;font-size:13.5px;color:var(--muted);line-height:1.8;}
+
+  /* ---- questions ---- */
+  .q-list{list-style:none;margin:0;padding:0;counter-reset:q;}
+  .q-list li{
+    counter-increment:q;position:relative;padding:14px 0 14px 52px;
+    border-bottom:1px solid var(--line-soft);
+  }
+  .q-list li::before{
+    content:counter(q);position:absolute;left:0;top:14px;
+    width:32px;height:32px;border:1px solid var(--accent);border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    font-family:var(--serif);font-size:15px;color:var(--accent);
+    font-variant-numeric:tabular-nums;box-sizing:border-box;
+  }
+  .q-list b{display:block;margin-bottom:2px;}
+  .q-list p{margin:0;font-size:13.5px;color:var(--muted);line-height:1.8;}
+
+  /* ---- footer ---- */
+  .doc-foot{
+    margin-top:64px;padding-top:20px;border-top:1px solid var(--ink);
+    font-size:12.5px;color:var(--muted);line-height:2;
+  }
+  .doc-foot code{
+    font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+    font-size:11.5px;background:var(--chip-bg);padding:2px 6px;border-radius:4px;
+    word-break:break-all;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header class="doc-head">
+    <p class="eyebrow">新規事業開発プロジェクト|WEB制作会社の既存アセット活用</p>
+    <h1>資産分析と新規事業アイデア<br>第1弾・要旨</h1>
+    <div class="doc-meta">
+      <span class="status-chip">討議用ドラフト</span>
+      <span class="num">作成日 2026年7月18日</span>
+      <span class="num">分析対象: 請求データ 2025年1月〜2026年2月(約100件)</span>
+    </div>
+    <p class="lede">
+      請求データが示すのは、単なるWeb制作会社ではなく<strong>「建設業界の団体・協会のアウトソーシング先」</strong>という姿。
+      とりわけ<strong>「建設 × 外国人材 × 教育 × 多言語(8言語)」</strong>という、他のWeb制作会社が持たない交差点に立っている。
+      この資産を「受託」から「プロダクト・ストック収益」へ転換することが本プロジェクトの主題である。
+    </p>
+  </header>
+
+  <section>
+    <p class="sec-label">1|現状分析</p>
+    <h2>自社の資産と構造的課題</h2>
+    <div class="two-col">
+      <div class="panel">
+        <h3>保有する資産</h3>
+        <ul>
+          <li><b>中核顧客:</b> 建設技能人材機構(JAC・最大顧客/講習月額運用<span class="num">690万〜1,459万円/月</span>・粗利<span class="num">60〜71%</span>)、建設業振興基金、KMS ほか</li>
+          <li><b>既保有のストック収益:</b> 保守・ホスティング・システム使用料・講習月額運用・修了証の月次業務</li>
+        </ul>
+        <div class="cap-chips">
+          <span>8言語の教材制作</span>
+          <span>オンライン講習運営一式</span>
+          <span>官公庁・団体案件の遂行力</span>
+          <span>編集・取材力</span>
+          <span>海外現地の実行支援</span>
+          <span>印刷×Webの一貫対応</span>
+        </div>
+      </div>
+      <div class="panel caution">
+        <h3>構造的課題</h3>
+        <ul>
+          <li>JAC・振興基金の<b>2者への顧客集中</b>リスク</li>
+          <li>印刷・版下系は大型受注でも<b>粗利<span class="num">8〜30%</span></b>と薄く労働集約的</li>
+          <li>小口保守に<b>赤字案件</b>あり(粗利率<span class="num">-32%</span>)</li>
+          <li>少人数体制(請求書上の担当者は<span class="num">4</span>名程度)</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <p class="sec-label">2|方向性の仮説</p>
+    <h2>戦略3軸</h2>
+    <div class="axes">
+      <div class="axis">
+        <span class="axis-no">軸 一</span>
+        <b>ドメイン資産のプロダクト化</b>
+        <p>多言語教材・講習運営ノウハウをSaaS/ライセンス商品へ。最大の差別化要素。</p>
+      </div>
+      <div class="axis">
+        <span class="axis-no">軸 二</span>
+        <b>団体・協会業務の横展開</b>
+        <p>検定・会員・広報・講習という団体共通業務をパッケージ化し、全国の類似団体へ水平展開。</p>
+      </div>
+      <div class="axis">
+        <span class="axis-no">軸 三</span>
+        <b>AIパイプライン化</b>
+        <p>制作・運用の中身をAI化し労働集約から脱却。まず内製で実証し、その後外販へ。</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="cat-head">
+      <span class="cat-letter">A</span>
+      <div>
+        <p class="sec-label">カテゴリA</p>
+        <h2>既存リソース・既存顧客基盤の活用</h2>
+      </div>
+    </div>
+    <article class="idea">
+      <h3><span class="idea-no">A-1</span>検定・講習申込DXクラウド</h3>
+      <p>紙の検定・講習申込業務(現在は版下・印刷で大型受注中)をオンライン申込+決済+帳票のクラウドへ置き換え、全国の実施団体に月額提供。既存顧客で実証してから横展開。課題は自社印刷売上とのカニバリとセキュリティ要件(ISMS)。</p>
+    </article>
+    <article class="idea">
+      <h3><span class="idea-no">A-2</span>多言語安全衛生教育プラットフォーム</h3>
+      <p>8言語の安全衛生教材資産を、建設会社・監理団体・登録支援機関へ月額/人数課金のLMSで直接提供。<strong>JACとの教材権利関係の確認が最優先の前提条件</strong>(確認事項1)。</p>
+    </article>
+    <article class="idea">
+      <h3><span class="idea-no">A-3</span>講習オンライン化BPaaS</h3>
+      <p>実績のある「講習のオンライン化+運営+修了証発行」をパッケージ化して他団体へ展開。AI自動化で「1人で5団体」を設計目標にし、労働集約への回帰を防ぐ。</p>
+    </article>
+    <article class="idea">
+      <h3><span class="idea-no">A-4</span>AI運用サブスク(既存保守のアップセル)</h3>
+      <p>既存保守・ホスティング顧客約20社に、AIレポート・改善提案・更新代行を月額3〜10万円で上乗せ。赤字保守の黒字転換から着手する。</p>
+    </article>
+    <article class="idea">
+      <h3><span class="idea-no">A-5</span>広報誌・機関誌の編集DXサブスク</h3>
+      <p>機関誌「建技人」で培った取材・編集力にAI原稿支援を組み合わせ、団体広報のWeb/紙同時展開を月額パッケージ化。</p>
+    </article>
+    <div class="stub-block">
+      <h4>簡易リスト(A-6〜A-10)</h4>
+      <div class="stub-list">
+        <span><b>A-6</b>導入事例量産</span>
+        <span><b>A-7</b>受験者集客支援</span>
+        <span><b>A-8</b>RFP作成支援の商品化</span>
+        <span><b>A-9</b>デジタル修了証・オープンバッジSaaS</span>
+        <span><b>A-10</b>マネージドホスティング標準化</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="cat-head">
+      <span class="cat-letter">B</span>
+      <div>
+        <p class="sec-label">カテゴリB</p>
+        <h2>未着手分野のサービス・事業</h2>
+      </div>
+    </div>
+    <article class="idea">
+      <h3><span class="idea-no">B-1</span>入国前オンライン教育</h3>
+      <p>ベトナム・インドネシアの現地ネットワークを活かし、来日前の特定技能候補者へ日本語×建設用語×安全教育をオンライン提供。送出機関・監理団体経由のB2B2C課金。</p>
+    </article>
+    <article class="idea">
+      <h3><span class="idea-no">B-2</span>建設中小向け採用ブランディングサブスク</h3>
+      <p>「建設現場へGO!」の若年入職促進ノウハウを民間転用し、採用サイト+求人原稿+SNS+動画を月額提供。既存顧客の団体経由で「会員向けサービス」として販売する。</p>
+    </article>
+    <article class="idea">
+      <h3><span class="idea-no">B-3</span>登録支援機関向け 外国人材サポートアプリ</h3>
+      <p>特定技能外国人の生活支援・四半期報告を多言語アプリでホワイトラベル提供。「建設特化+安全教育つき」で既存競合と差別化。</p>
+    </article>
+    <article class="idea">
+      <h3><span class="idea-no">B-4</span>CBT・オンライン検定プラットフォーム</h3>
+      <p>検定団体向けにCBT試験(出題・監督・採点・合格発表)を提供。自社開発ではなくCBTエンジンのOEM+運用受託から参入する。</p>
+    </article>
+    <article class="idea">
+      <h3><span class="idea-no">B-5</span>安全教育動画ライブラリのライセンス事業</h3>
+      <p>特別教育・技能講習の動画教材を自社IP化し年間ライセンス販売。受託契約を「IP保持+利用権」型へ転換して制作原資を確保する。</p>
+    </article>
+    <div class="stub-block">
+      <h4>簡易リスト(B-6〜B-10)</h4>
+      <div class="stub-list">
+        <span><b>B-6</b>他業界(医療・製造)への多言語展開</span>
+        <span><b>B-7</b>東南アジア進出支援</span>
+        <span><b>B-8</b>電子教材配信</span>
+        <span><b>B-9</b>ウェビナー運営代行</span>
+        <span><b>B-10</b>教材EC・出版</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="cat-head">
+      <span class="cat-letter">C</span>
+      <div>
+        <p class="sec-label">カテゴリC</p>
+        <h2>最新AI技術を活用したサービス</h2>
+      </div>
+    </div>
+    <article class="idea">
+      <h3><span class="idea-no">C-1</span>専門文書AI多言語化サービス</h3>
+      <p>LLM+自社対訳用語集+ネイティブ校閲のハイブリッドで、安全衛生・技術文書の多言語化を翻訳会社の1/3価格・サブスクで提供。8言語の対訳コーパスが参入障壁になり、A-2/B-1/B-5の共通基盤にもなる。</p>
+    </article>
+    <article class="idea">
+      <h3><span class="idea-no">C-2</span>団体向けRAG問い合わせAI</h3>
+      <p>検定Q&amp;A・会員問合せ・多言語対応のAIチャットを構築し月額運用。試験期の電話対応ピークを自動化する。</p>
+    </article>
+    <article class="idea">
+      <h3><span class="idea-no">C-3</span>AIサイト保守エージェント</h3>
+      <p>更新・点検・レポート等の保守業務をAIエージェント化して原価を圧縮。自社保守約20社で標準化を確立した後、他の制作会社へ外販。</p>
+    </article>
+    <article class="idea">
+      <h3><span class="idea-no">C-4</span>AI動画教材スタジオ</h3>
+      <p>アバター講師+音声合成+自動字幕・翻訳で、講習動画を従来比1/5コストで量産。多言語版も同時生成できる。</p>
+    </article>
+    <article class="idea">
+      <h3><span class="idea-no">C-5</span>取材・編集AIパイプライン</h3>
+      <p>取材音声→構成→原稿→校正の一気通貫パイプラインを内製で確立し、編集プロダクション・広報部門向けにSaaS化する。</p>
+    </article>
+    <div class="stub-block">
+      <h4>簡易リスト(C-6〜C-10)</h4>
+      <div class="stub-list">
+        <span><b>C-6</b>LP/バナーAI生成+AB運用</span>
+        <span><b>C-7</b>風評監視AI</span>
+        <span><b>C-8</b>提案書・見積AI</span>
+        <span><b>C-9</b>現場向け多言語AI通訳</span>
+        <span><b>C-10</b>検定学習AIアプリ</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="cat-head">
+      <span class="cat-letter">D</span>
+      <div>
+        <p class="sec-label">カテゴリD</p>
+        <h2>その他</h2>
+      </div>
+    </div>
+    <article class="idea">
+      <h3><span class="idea-no">D-1</span>教材IPホールディング化</h3>
+      <p>受託を「納品買切り」から「自社IP保持+ライセンス供与」へ契約転換し、教材・動画・システムの権利ポートフォリオを構築する事業方針の転換。</p>
+    </article>
+    <article class="idea">
+      <h3><span class="idea-no">D-2</span>建設特化メディア&amp;リードジェン</h3>
+      <p>建設DX・外国人材の専門オウンドメディアを運営し、広告+ホワイトペーパー+送客で収益化。自社新サービスの顧客獲得装置を兼ねる。</p>
+    </article>
+    <article class="idea">
+      <h3><span class="idea-no">D-3</span>生成AI導入研修・伴走支援</h3>
+      <p>自社のAI活用実践を教材化した研修+導入伴走。研修は入口とし、月額の「AI活用顧問」を本命とする。</p>
+    </article>
+    <article class="idea">
+      <h3><span class="idea-no">D-4</span>Web/システム調達の発注者側パートナー</h3>
+      <p>RFP作成支援の実績を発展させ、団体のシステム/Web調達に発注者側で伴走する月額顧問。受託事業と分離したブランドで利益相反を回避。</p>
+    </article>
+    <article class="idea">
+      <h3><span class="idea-no">D-5</span>業界白書・調査データ事業</h3>
+      <p>「外国人材と安全教育白書」等をスポンサー+有料販売で発行し、年次刊行+データ購読のサブスクへ育てる。</p>
+    </article>
+    <div class="stub-block">
+      <h4>簡易リスト(D-6〜D-10)</h4>
+      <div class="stub-list">
+        <span><b>D-6</b>補助金支援バンドル</span>
+        <span><b>D-7</b>外国人材コミュニティ</span>
+        <span><b>D-8</b>印刷発注プラットフォーム</span>
+        <span><b>D-9</b>SaaSの東南アジア展開</span>
+        <span><b>D-10</b>地方制作会社との提携・ロールアップ</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <p class="sec-label">3|討議のたたき台</p>
+    <h2>優先順位の私見</h2>
+    <div class="prio">
+      <div class="prio-row">
+        <span class="pill pill-main">本 命</span>
+        <div>
+          <b>A-2 / B-5|多言語安全教育のプロダクト化</b>
+          <p>他社が持たない資産の直接活用。市場(外国人建設労働者)は拡大中。ただし教材権利の確認が前提。</p>
+        </div>
+      </div>
+      <div class="prio-row">
+        <span class="pill">対 抗</span>
+        <div>
+          <b>A-1|検定申込DXクラウド</b>
+          <p>市場が明確で、紙業務の課題を自社が誰より知っている。既存顧客で実証→全国横展開。</p>
+        </div>
+      </div>
+      <div class="prio-row">
+        <span class="pill">短期の足場</span>
+        <div>
+          <b>A-4 + C-3|保守のAI化・サブスク化</b>
+          <p>投資最小・即着手可能。粗利改善と「AI運用の実績」づくりを兼ねる。</p>
+        </div>
+      </div>
+      <div class="prio-row">
+        <span class="pill">基盤投資</span>
+        <div>
+          <b>C-1|AI多言語パイプライン</b>
+          <p>単体でも事業になり、本命群(A-2/B-1/B-5)の原価を下げる共通基盤になる。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <p class="sec-label">4|要回答</p>
+    <h2>確認したい事項</h2>
+    <ol class="q-list">
+      <li>
+        <b>教材・システムの権利関係</b>
+        <p>JAC向け多言語教材・オンライン講習の著作権/二次利用権はどちらに帰属しているか。本命案(A-2/B-5/C-1)の成立性に直結する最重要事項。</p>
+      </li>
+      <li>
+        <b>開発体制</b>
+        <p>バックエンドを含むエンジニアの内製はあるか、外注中心か。SaaS型アイデアの実現方式を左右する。</p>
+      </li>
+      <li>
+        <b>会社規模と投資スタンス</b>
+        <p>社員数と、新規事業に割ける人員・予算の目安(小さく検証/中規模投資/大型投資)。</p>
+      </li>
+      <li>
+        <b>カニバリの許容度</b>
+        <p>印刷・版下売上を食う提案(A-1等)を経営としてどこまで許容できるか。</p>
+      </li>
+      <li>
+        <b>提案書の体裁</b>
+        <p>提出先(経営会議等)、希望フォーマット(PowerPoint/Word/PDF)、提出時期の目安。</p>
+      </li>
+    </ol>
+  </section>
+
+  <footer class="doc-foot">
+    <p>
+      全文はリポジトリ <code>docs/01_資産分析と新規事業アイデア第1弾ドラフト.md</code>(ブランチ: <code>claude/web-agency-new-business-ideas-wt0no5</code>)を参照。<br>
+      次のステップ: 確認事項への回答 → 方向性の絞り込みと有望案の深掘り(市場規模・収益シミュレーション・ロードマップ)→ 合意後に会社提出用の提案書を制作。
+    </p>
+  </footer>
+
+</div>
+</body>
+</html>
