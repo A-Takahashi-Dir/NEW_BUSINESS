@@ -178,9 +178,9 @@
   }
   .cat-head h2{margin:0;}
   .cat-head .sec-label{margin:0 0 2px;}
-  .idea{border-bottom:1px solid var(--line-soft);padding:18px 0;}
+  .idea{border-bottom:1px solid var(--line-soft);padding:22px 0;}
   .idea:last-of-type{border-bottom:none;}
-  .idea h3{margin:0 0 6px;font-size:16px;line-height:1.6;}
+  .idea h3{margin:0 0 8px;font-size:16.5px;line-height:1.6;}
   .idea-no{
     display:inline-block;color:var(--accent);font-size:13px;font-weight:700;
     margin-right:10px;font-variant-numeric:tabular-nums;letter-spacing:.04em;
@@ -189,8 +189,15 @@
     display:inline-block;margin-left:10px;font-size:10.5px;font-weight:700;letter-spacing:.1em;
     color:var(--amber);border:1px solid var(--amber);border-radius:3px;padding:1px 7px;vertical-align:2px;
   }
-  .idea p{margin:0;color:var(--muted);font-size:14px;line-height:1.9;max-width:46em;}
-  .idea p strong{color:var(--amber);font-weight:600;}
+  .idea-lead{margin:0;font-size:14px;line-height:1.9;max-width:46em;color:var(--ink);}
+  .f-grid{display:grid;grid-template-columns:10.5em 1fr;gap:10px 18px;margin-top:14px;}
+  @media (max-width:620px){.f-grid{grid-template-columns:1fr;gap:2px 0;}}
+  .f-label{
+    font-size:12px;font-weight:700;color:var(--accent);letter-spacing:.04em;padding-top:3px;
+  }
+  @media (max-width:620px){.f-label{padding-top:10px;}}
+  .f-val{margin:0;font-size:13.5px;color:var(--muted);line-height:1.85;}
+  .f-val strong{color:var(--amber);font-weight:600;}
   .stub-block{margin-top:6px;padding:16px 0 0;border-top:1px dashed var(--line);}
   .stub-block h4{margin:0 0 10px;font-size:12px;letter-spacing:.12em;color:var(--muted);font-weight:600;}
   .stub-list{display:flex;flex-wrap:wrap;gap:8px;}
@@ -259,8 +266,8 @@
     <p class="eyebrow">新規事業開発プロジェクト|WEB制作会社の既存アセット活用</p>
     <h1>資産分析と新規事業アイデア<br>第1弾・要旨</h1>
     <div class="doc-meta">
-      <span class="status-chip">討議用ドラフト 第2版</span>
-      <span class="num">第2版 2026年7月18日(前提回答を反映)</span>
+      <span class="status-chip">討議用ドラフト 第3版</span>
+      <span class="num">第3版 2026年7月19日(顧客イメージ・価値・技術・課題を各案に加筆)</span>
       <span class="num">分析対象: 請求データ 2025年1月〜2026年2月(約100件)</span>
     </div>
     <p class="lede">
@@ -396,28 +403,84 @@
         <h2>既存リソース・既存顧客基盤の活用</h2>
       </div>
     </div>
+
     <article class="idea">
-      <h3><span class="idea-no">A-1</span>検定・講習申込DXクラウド<span class="update-tag">第2版で格上げ</span></h3>
-      <p>紙の検定・講習申込業務(現在は版下・印刷で大型受注中)をオンライン申込+決済+帳票のクラウドへ置き換え、全国の実施団体に月額提供。<strong>カニバリ許容の経営判断と親会社の開発力により障害が消滅。</strong>既存顧客で実証→横展開。残る論点はセキュリティ要件(ISMS)と商流設計。</p>
+      <h3><span class="idea-no">A-1</span>検定・講習申込DXクラウド<span class="update-tag">本命②</span></h3>
+      <p class="idea-lead">紙の検定・講習申込業務を、オンライン申込+決済+受験票発行+帳票出力のクラウドに置き換え、全国の実施団体へ初期費+月額で提供する。</p>
+      <div class="f-grid">
+        <span class="f-label">具体的な顧客イメージ</span>
+        <p class="f-val">全国に数百ある資格・検定・技能講習の実施団体(財団・社団・職業訓練法人)の事務局長・試験部門責任者。試験期は紙申込書の発送・回収・手入力・入金照合に職員が忙殺され、ミスと残業が常態化。職員は50代中心でIT人材は不在。東京本部+全国支部という構造が多く、行政からのデジタル化要請も受けている。</p>
+        <span class="f-label">顧客が得られる価値</span>
+        <p class="f-val">申込処理コストと入力ミスの削減、入金照合の自動化、受験者データの資産化。受験者側はスマホで申込・決済が完結し、若年受験者の取り込みにも効く。</p>
+        <span class="f-label">実現に必要な技術</span>
+        <p class="f-val">既存のフォーム/帳票システム運用ノウハウ+決済API(GMO/Stripe等)+マイページ・受験票発行。バックエンドは親会社が開発。AIは移行期の紙申込OCRと問合せ自動応答に活用。</p>
+        <span class="f-label">想定される課題と対策</span>
+        <p class="f-val">個人情報・セキュリティ要件(ISMS/Pマーク)と、団体特有の長い稟議→既存顧客(振興基金)で実績を作り「導入事例+官公庁水準のセキュリティ」で横展開。親会社との商流(開発費・収益配分)を最初に設計する。</p>
+      </div>
     </article>
+
     <article class="idea">
-      <h3><span class="idea-no">A-2</span>多言語安全衛生教育プラットフォーム<span class="update-tag">更新</span></h3>
-      <p>8言語の安全衛生教材資産を、建設会社・監理団体・登録支援機関へ月額/人数課金のLMSで直接提供。権利シナリオ①なら既存教材で最短立ち上げ、シナリオ②ならJAC共同事業化またはC-1基盤での教材再制作で対応(2章のシナリオ参照)。</p>
+      <h3><span class="idea-no">A-2</span>多言語安全衛生教育プラットフォーム<span class="update-tag">本命①</span></h3>
+      <p class="idea-lead">8言語の安全衛生教材(テキスト/動画)を、月額/人数課金のLMSで受入企業・支援機関へ直接提供する。</p>
+      <div class="f-grid">
+        <span class="f-label">具体的な顧客イメージ</span>
+        <p class="f-val">技能実習生・特定技能人材を受け入れる中小建設会社(従業員10〜50名、全国の地方圏に分布)の社長・安全管理者と、監理団体・登録支援機関の支援担当者。「教育はしたが母国語でないため理解されていない」「建設専門用語の母国語教材が市販にない」「監査・労基署対応に出せる実施記録が整っていない」が痛点。</p>
+        <span class="f-label">顧客が得られる価値</span>
+        <p class="f-val">母国語で「現場で通じる」安全教育を即日実施でき、修了記録が自動で残るため災害時・監査時の証明になる。労災リスクと教育工数の同時削減。</p>
+        <span class="f-label">実現に必要な技術</span>
+        <p class="f-val">既存のLMS運用・動画配信・修了管理ノウハウ。AIは追加言語への翻訳ドラフトと音声合成ナレーションに活用。8言語の対訳用語集が品質の核。</p>
+        <span class="f-label">想定される課題と対策</span>
+        <p class="f-val">教材権利(2章の権利シナリオ①/②で両にらみ)。中小建設への販路は監理団体・登録支援機関経由のB2B2Bモデルと業界団体の推奨獲得で構築する。</p>
+      </div>
     </article>
+
     <article class="idea">
       <h3><span class="idea-no">A-3</span>講習オンライン化BPaaS</h3>
-      <p>実績のある「講習のオンライン化+運営+修了証発行」をパッケージ化して他団体へ展開。AI自動化で「1人で5団体」を設計目標にし、労働集約への回帰を防ぐ。</p>
+      <p class="idea-lead">「講習のオンライン化構築+集客+運営+修了証発行」を一式パッケージ化し、初期費+月額(または受講者数連動)で提供する。</p>
+      <div class="f-grid">
+        <span class="f-label">具体的な顧客イメージ</span>
+        <p class="f-val">講習・研修事業を収益源とする業界団体・職能団体の事業部長。会場講習の集客減と講師の高齢化に直面し、オンライン化したいがIT人材が皆無。KMS研修センターと同型の悩みは全国の団体に共通する。</p>
+        <span class="f-label">顧客が得られる価値</span>
+        <p class="f-val">自前のシステム投資・人員増なしで講習事業をオンライン化・全国化でき、受講者データも資産化。団体の重要な収益事業を維持・拡大できる。</p>
+        <span class="f-label">実現に必要な技術</span>
+        <p class="f-val">LMS+動画制作+申込〜修了証の運営オペレーション。AIで受講者対応チャット、字幕生成、試験問題の生成支援。</p>
+        <span class="f-label">想定される課題と対策</span>
+        <p class="f-val">運営が労働集約に戻りがち→標準運営マニュアル+AI自動化で「1人で5団体」体制を設計。受講者数連動の料金プランで団体側の初期リスクを下げ導入障壁を低くする。</p>
+      </div>
     </article>
+
     <article class="idea">
       <h3><span class="idea-no">A-4</span>AI運用サブスク(既存保守のアップセル)</h3>
-      <p>既存保守・ホスティング顧客約20社に、AIレポート・改善提案・更新代行を月額3〜10万円で上乗せ。赤字保守の黒字転換から着手する。</p>
+      <p class="idea-lead">既存保守・ホスティング顧客へ、AIによる更新代行・月次レポート・改善提案・点検を月額3〜10万円で上乗せ提供する。</p>
+      <div class="f-grid">
+        <span class="f-label">具体的な顧客イメージ</span>
+        <p class="f-val">既に保守契約のある約20社(団体・中堅企業)のWeb担当者。多くは総務兼任の1名体制で、「サイトはあるが更新が止まっている」「アクセスレポートを見ても何をすべきか分からない」「上司に報告する材料がない」状態。</p>
+        <span class="f-label">顧客が得られる価値</span>
+        <p class="f-val">月額のまま「何かあったら対応」から「毎月改善されるサイト」へ。更新代行+改善提案により、担当者の社内報告・稟議材料も揃う。自社側は赤字保守の黒字転換。</p>
+        <span class="f-label">実現に必要な技術</span>
+        <p class="f-val">既存保守体制+LLMによるレポート・原稿の自動生成、監視・点検の自動化。C-3のエージェント基盤を共用。</p>
+        <span class="f-label">想定される課題と対策</span>
+        <p class="f-val">実質値上げの交渉ハードル→現行保守+αの松竹梅プランで自然移行を促し、赤字・低粗利案件から着手。月次レポートに改善実績を必ず数値で載せ、解約理由を作らない。</p>
+      </div>
     </article>
+
     <article class="idea">
       <h3><span class="idea-no">A-5</span>広報誌・機関誌の編集DXサブスク</h3>
-      <p>機関誌「建技人」で培った取材・編集力にAI原稿支援を組み合わせ、団体広報のWeb/紙同時展開を月額パッケージ化。</p>
+      <p class="idea-lead">団体広報誌の企画〜取材〜Web/紙同時展開を、AI原稿支援を組み込んだ月額パッケージで提供する。</p>
+      <div class="f-grid">
+        <span class="f-label">具体的な顧客イメージ</span>
+        <p class="f-val">会報・機関誌を発行する業界団体・共済組合・OB会(フジ旧友会型)の広報担当者。1名で企画〜入稿を回して発行のたびに疲弊し、紙は残したいがWeb展開まで手が回らない。</p>
+        <span class="f-label">顧客が得られる価値</span>
+        <p class="f-val">少人数のまま機関誌+Web記事+SNSの三面展開が回る。過去記事のアーカイブ・検索化で広報資産が蓄積され、会員への到達も広がる。</p>
+        <span class="f-label">実現に必要な技術</span>
+        <p class="f-val">機関誌「建技人」で培った取材・編集ノウハウ+LLM(取材音声→原稿ドラフト・要約・SNS展開)+既存のDTP/印刷網。</p>
+        <span class="f-label">想定される課題と対策</span>
+        <p class="f-val">制作費型の単価に留まりがち→Webアーカイブ+検索+配信のストック部分を月額の核に設計し、「1誌ごと」でなく「年間広報パッケージ」で値付けする。</p>
+      </div>
     </article>
+
     <div class="stub-block">
-      <h4>簡易リスト(A-6〜A-10)</h4>
+      <h4>簡易リスト(A-6〜A-10)※絞り込み後に詳細化</h4>
       <div class="stub-list">
         <span><b>A-6</b>導入事例量産</span>
         <span><b>A-7</b>受験者集客支援</span>
@@ -436,28 +499,84 @@
         <h2>未着手分野のサービス・事業</h2>
       </div>
     </div>
+
     <article class="idea">
       <h3><span class="idea-no">B-1</span>入国前オンライン教育</h3>
-      <p>ベトナム・インドネシアの現地ネットワークを活かし、来日前の特定技能候補者へ日本語×建設用語×安全教育をオンライン提供。送出機関・監理団体経由のB2B2C課金。</p>
+      <p class="idea-lead">来日前の特定技能候補者へ、日本語×建設用語×安全教育のオンライン講座を送出機関・監理団体経由(B2B2C)で提供する。</p>
+      <div class="f-grid">
+        <span class="f-label">具体的な顧客イメージ</span>
+        <p class="f-val">一次顧客はベトナム・インドネシアの送出機関の経営者と、日本側の監理団体・登録支援機関。最終受益者は来日を控えた18〜28歳の特定技能候補者(スマホのみ保有、PCなし)。送出機関は「教育品質で差別化したいが、日本の現場仕様の教材がない」という課題を持つ。</p>
+        <span class="f-label">顧客が得られる価値</span>
+        <p class="f-val">送出機関は「日本の建設現場仕様の教育つき」を差別化材料にでき、日本側の受入企業は入国直後から戦力化・事故予防ができる。候補者は現地語+やさしい日本語で無理なく学べる。</p>
+        <span class="f-label">実現に必要な技術</span>
+        <p class="f-val">スマホ最適化LMS+動画教材+AI発音評価・自動採点・チャット家庭教師。現地プロモ実行支援(ベトナム・インドネシア)の経験を販路開拓に転用。</p>
+        <span class="f-label">想定される課題と対策</span>
+        <p class="f-val">現地の商習慣・与信・回収リスク→日本側(監理団体・受入企業)課金のB2B2Cに寄せる。現地営業は既存の現地ネットワークとJACとの関係を足がかりにする。</p>
+      </div>
     </article>
+
     <article class="idea">
       <h3><span class="idea-no">B-2</span>建設中小向け採用ブランディングサブスク</h3>
-      <p>「建設現場へGO!」の若年入職促進ノウハウを民間転用し、採用サイト+求人原稿+SNS+動画を月額提供。既存顧客の団体経由で「会員向けサービス」として販売する。</p>
+      <p class="idea-lead">採用サイト+求人原稿+SNS+現場動画を月額5〜15万円のパッケージで中小建設会社へ提供する。</p>
+      <div class="f-grid">
+        <span class="f-label">具体的な顧客イメージ</span>
+        <p class="f-val">従業員5〜30名の地場建設会社の社長(全国約47万社)。「求人を出しても応募ゼロ」「HPは10年前のまま」「若者に何を発信すべきか分からない」。広告代理店に頼む予算はなく、月数万円が限度。</p>
+        <span class="f-label">顧客が得られる価値</span>
+        <p class="f-val">代理店に頼めない価格帯で「選ばれる会社」の見せ方を獲得し、応募数・応募単価が改善。採用広報が仕組みとして毎月回り続ける。</p>
+        <span class="f-label">実現に必要な技術</span>
+        <p class="f-val">「建設現場へGO!」で培った若年入職促進ノウハウ+Web制作+動画。AIによる求人原稿・SNS投稿の生成とテンプレート化で量産体制を組む。</p>
+        <span class="f-label">想定される課題と対策</span>
+        <p class="f-val">中小47万社への直販営業力がない→既存顧客の業界団体経由で「会員向け優待サービス」として展開。解約防止は毎月の成果レポート+年間契約設計で。</p>
+      </div>
     </article>
+
     <article class="idea">
       <h3><span class="idea-no">B-3</span>登録支援機関向け 外国人材サポートアプリ</h3>
-      <p>特定技能外国人の生活支援・四半期報告を多言語アプリでホワイトラベル提供。「建設特化+安全教育つき」で既存競合と差別化。</p>
+      <p class="idea-lead">特定技能外国人の生活支援・相談・記録・報告を多言語アプリでホワイトラベル提供する。</p>
+      <div class="f-grid">
+        <span class="f-label">具体的な顧客イメージ</span>
+        <p class="f-val">全国約1万の登録支援機関(行政書士事務所系・人材会社系など)の支援責任者と、外国人を10名以上雇用する受入企業の人事担当。「四半期報告と生活相談対応に人手が食われる」「深夜・母国語の相談に対応できない」。</p>
+        <span class="f-label">顧客が得られる価値</span>
+        <p class="f-val">支援記録・報告書類の自動化で1人あたり支援コストを削減。外国人本人は母国語で24時間相談でき、定着率の向上が受入企業への提案材料になる。</p>
+        <span class="f-label">実現に必要な技術</span>
+        <p class="f-val">PWAアプリ(軽量・多端末)+LLM多言語チャット+報告書類の自動生成。8言語対応の知見を転用。</p>
+        <span class="f-label">想定される課題と対策</span>
+        <p class="f-val">汎用の支援アプリ競合が存在→「建設特化+安全教育(A-2)バンドル」で差別化。行政書式の変更追従はサブスクの継続価値として組み込む。既存ネットワーク数社でPoCから開始。</p>
+      </div>
     </article>
+
     <article class="idea">
-      <h3><span class="idea-no">B-4</span>CBT・オンライン検定プラットフォーム<span class="update-tag">更新</span></h3>
-      <p>検定団体向けにCBT試験(出題・監督・採点・合格発表)を提供。CBTエンジンのOEM活用に加え、<strong>親会社との共同開発による自社エンジン構築も選択肢に。</strong>A-1と同一顧客への段階提案(申込DX→CBT化)が可能。</p>
+      <h3><span class="idea-no">B-4</span>CBT・オンライン検定プラットフォーム</h3>
+      <p class="idea-lead">検定団体向けに、CBT試験の出題・監督・採点・合格発表までを初期構築+受験者数課金で提供する。</p>
+      <div class="f-grid">
+        <span class="f-label">具体的な顧客イメージ</span>
+        <p class="f-val">受験者数千〜数万人規模の検定を紙で実施している団体の試験部門長。「会場費・監督員の確保が年々困難」「CBT大手は高額で、小規模検定は相手にされない」。</p>
+        <span class="f-label">顧客が得られる価値</span>
+        <p class="f-val">会場・印刷・輸送コストの削減、採点の即日化、通年・全国受験による受験者数の増加。小規模検定でも全国展開が可能になる。</p>
+        <span class="f-label">実現に必要な技術</span>
+        <p class="f-val">CBTエンジン(まずOEM/提携)+本人確認+AI監視(在宅試験)。実績を積んだ後、親会社との共同開発で自社エンジン化も選択肢。</p>
+        <span class="f-label">想定される課題と対策</span>
+        <p class="f-val">開発規模とセキュリティ要件が大きい→第1段階はOEM+運用受託で参入し、内製化はステージゲートで判断。A-1と同一顧客への段階提案(申込DX→CBT化)で営業コストを最小化。</p>
+      </div>
     </article>
+
     <article class="idea">
-      <h3><span class="idea-no">B-5</span>安全教育動画ライブラリのライセンス事業<span class="update-tag">更新</span></h3>
-      <p>特別教育・技能講習の動画教材を自社IP化し年間ライセンス販売。権利シナリオ②の場合は、新規制作分から「IP保持+利用権」型契約に切り替えて権利ポートフォリオを構築する。</p>
+      <h3><span class="idea-no">B-5</span>安全教育動画ライブラリのライセンス事業<span class="update-tag">本命①</span></h3>
+      <p class="idea-lead">特別教育・技能講習の動画教材を自社IPとして制作し、企業・団体へ年間ライセンスで販売する。</p>
+      <div class="f-grid">
+        <span class="f-label">具体的な顧客イメージ</span>
+        <p class="f-val">建設会社の安全部長(元請の安全書類要求に追われる)、建機レンタル会社・ゼネコンの安全教育担当、労働安全コンサルタント。「特別教育のたびに講師手配・教材準備が負担」「外国人向けの法定教育教材が市販にない」。</p>
+        <span class="f-label">顧客が得られる価値</span>
+        <p class="f-val">年間ライセンスで法定教育の教材が常に最新・多言語で使い放題。教育準備の工数が激減し、法改正時も配信で即反映される。</p>
+        <span class="f-label">実現に必要な技術</span>
+        <p class="f-val">動画制作力+AI翻訳・吹替(多言語版の低コスト展開)+配信・視聴管理基盤。法改正のウォッチ体制。</p>
+        <span class="f-label">想定される課題と対策</span>
+        <p class="f-val">初期制作投資が必要→受託制作の契約を「自社IP保持+顧客に利用権」型へ転換して原資を確保(D-1と連動)。販路は建設団体・建機レンタル会社との提携販売で構築。</p>
+      </div>
     </article>
+
     <div class="stub-block">
-      <h4>簡易リスト(B-6〜B-10)</h4>
+      <h4>簡易リスト(B-6〜B-10)※絞り込み後に詳細化</h4>
       <div class="stub-list">
         <span><b>B-6</b>他業界(医療・製造)への多言語展開</span>
         <span><b>B-7</b>東南アジア進出支援</span>
@@ -476,28 +595,84 @@
         <h2>最新AI技術を活用したサービス</h2>
       </div>
     </div>
+
     <article class="idea">
-      <h3><span class="idea-no">C-1</span>専門文書AI多言語化サービス<span class="update-tag">更新</span></h3>
-      <p>LLM+自社対訳用語集+ネイティブ校閲のハイブリッドで、安全衛生・技術文書の多言語化を翻訳会社の1/3価格・サブスクで提供。8言語の対訳コーパスが参入障壁になり、A-2/B-1/B-5の共通基盤に。<strong>権利シナリオ②の際の教材再制作エンジンを兼ねる「保険つき」の基盤投資。</strong></p>
+      <h3><span class="idea-no">C-1</span>専門文書AI多言語化サービス<span class="update-tag">基盤投資</span></h3>
+      <p class="idea-lead">LLM+自社対訳用語集+ネイティブ校閲のハイブリッドで、専門文書の多言語化を従来の1/3価格・サブスクで提供する。</p>
+      <div class="f-grid">
+        <span class="f-label">具体的な顧客イメージ</span>
+        <p class="f-val">外国人を雇用する製造・建設・食品企業の総務/安全部門、自治体の多文化共生課、業界団体の教育部門。「就業規則・安全マニュアル・作業手順書を多言語化したいが、翻訳会社は高額で、汎用AI翻訳は専門用語が壊滅的」。</p>
+        <span class="f-label">顧客が得られる価値</span>
+        <p class="f-val">現場で通じる専門翻訳を従来の1/3価格・数日で入手。翻訳文だけでなく組版(冊子)・動画まで完成品で納品される。</p>
+        <span class="f-label">実現に必要な技術</span>
+        <p class="f-val">LLM+専門用語辞書のRAG+ネイティブ校閲者ネットワーク+InDesign自動組版。8言語の対訳コーパス資産が精度の参入障壁。</p>
+        <span class="f-label">想定される課題と対策</span>
+        <p class="f-val">翻訳会社との価格競争→「翻訳」ではなく「多言語コンテンツの完成品」で土俵をずらす。まず自社案件の内製効率化で実証。権利シナリオ②の際の教材再制作エンジンを兼ねる「保険つき」基盤投資。</p>
+      </div>
     </article>
+
     <article class="idea">
       <h3><span class="idea-no">C-2</span>団体向けRAG問い合わせAI</h3>
-      <p>検定Q&amp;A・会員問合せ・多言語対応のAIチャットを構築し月額運用。試験期の電話対応ピークを自動化する。</p>
+      <p class="idea-lead">規程・FAQを学習したRAGチャットを構築し、検定・会員問合せを月額で自動化運用する。</p>
+      <div class="f-grid">
+        <span class="f-label">具体的な顧客イメージ</span>
+        <p class="f-val">検定・会員業務を持つ団体の総務課長。「試験申込期は電話が鳴りやまず職員が疲弊」「問合せの7割が同じ質問」「夜間・外国語には対応できない」。</p>
+        <span class="f-label">顧客が得られる価値</span>
+        <p class="f-val">定型問合せの自動化で職員は例外対応に集中でき、ピーク期の残業が消える。24時間・多言語対応で受験者・会員の満足度も向上。</p>
+        <span class="f-label">実現に必要な技術</span>
+        <p class="f-val">RAG構築(規程・FAQ・過去問合せの整備)+Web/LINE組込み+有人エスカレーション設計。既存顧客の業務知識が精度の源泉。</p>
+        <span class="f-label">想定される課題と対策</span>
+        <p class="f-val">誤答リスク→回答範囲の限定+出典表示+有人切替の三段構え。導入効果は、まず自社が運営受託している業務(KMS講習)で数値実証してから外販する。</p>
+      </div>
     </article>
+
     <article class="idea">
-      <h3><span class="idea-no">C-3</span>AIサイト保守エージェント</h3>
-      <p>更新・点検・レポート等の保守業務をAIエージェント化して原価を圧縮。自社保守約20社で標準化を確立した後、他の制作会社へ外販。</p>
+      <h3><span class="idea-no">C-3</span>AIサイト保守エージェント<span class="update-tag">短期の足場</span></h3>
+      <p class="idea-lead">保守業務(更新・点検・レポート)をAIエージェント化して原価を圧縮し、確立後に他の制作会社へ外販する。</p>
+      <div class="f-grid">
+        <span class="f-label">具体的な顧客イメージ</span>
+        <p class="f-val">第1段階は自社(保守約20社の原価改善)。第2段階は従業員5〜30名の中小Web制作会社の経営者。「保守契約は売上の柱だが人が張り付いて利益が出ない」「値上げすれば解約される」というジレンマを抱える。</p>
+        <span class="f-label">顧客が得られる価値</span>
+        <p class="f-val">保守作業の大半を自動化し、同じ月額で粗利を数倍に。制作会社は保守を「負担」から「利益源」へ転換できる。</p>
+        <span class="f-label">実現に必要な技術</span>
+        <p class="f-val">AIエージェント(Claude等)+CMS API連携+監視ツール連携+作業ログの自動記録。</p>
+        <span class="f-label">想定される課題と対策</span>
+        <p class="f-val">サイト構成の多様性で自動化が崩れやすい→まず自社20社で標準化パターンを確立してから外販。品質事故防止に、人の承認を挟む半自動運用から開始する。</p>
+      </div>
     </article>
+
     <article class="idea">
       <h3><span class="idea-no">C-4</span>AI動画教材スタジオ</h3>
-      <p>アバター講師+音声合成+自動字幕・翻訳で、講習動画を従来比1/5コストで量産。多言語版も同時生成できる。</p>
+      <p class="idea-lead">AIアバター講師+音声合成+自動字幕・翻訳で、講習・研修動画を従来比1/5コストで量産する。</p>
+      <div class="f-grid">
+        <span class="f-label">具体的な顧客イメージ</span>
+        <p class="f-val">研修・講習を持つ団体・企業の教育担当。「講師の撮影日程が取れない」「法改正のたびに撮り直しで数十万円かかる」「多言語版は予算的に無理」と諦めている。</p>
+        <span class="f-label">顧客が得られる価値</span>
+        <p class="f-val">従来比1/5コスト・数日で講習動画が完成。改訂は差分だけ再生成でき、多言語版も同時出力。教材の鮮度が常に保たれる。</p>
+        <span class="f-label">実現に必要な技術</span>
+        <p class="f-val">動画制作の品質管理ノウハウ+AIアバター/音声合成+自動字幕・翻訳。B-5・A-2の教材制作ラインと共用。</p>
+        <span class="f-label">想定される課題と対策</span>
+        <p class="f-val">AI生成品質と声・肖像の権利→制作ガイドラインを整備し、顔出し不要の教材系から着手。単価下落圧力には「量産×サブスク改訂」の年間契約で総額を確保。</p>
+      </div>
     </article>
+
     <article class="idea">
       <h3><span class="idea-no">C-5</span>取材・編集AIパイプライン</h3>
-      <p>取材音声→構成→原稿→校正の一気通貫パイプラインを内製で確立し、編集プロダクション・広報部門向けにSaaS化する。</p>
+      <p class="idea-lead">取材音声→構成→原稿→校正の一気通貫AIパイプラインを内製で確立し、SaaSとして外販する。</p>
+      <div class="f-grid">
+        <span class="f-label">具体的な顧客イメージ</span>
+        <p class="f-val">第1段階は自社編集部(機関誌・導入事例制作)。第2段階は編集プロダクション・企業広報部門の編集責任者。「取材はできるが原稿化が滞留する」「外注ライター費が高騰している」。</p>
+        <span class="f-label">顧客が得られる価値</span>
+        <p class="f-val">取材から原稿までの制作時間を1/3に短縮。編集者は企画と品質管理に集中でき、人数を増やさず制作量を拡大できる。</p>
+        <span class="f-label">実現に必要な技術</span>
+        <p class="f-val">音声認識+LLMによる構成・草稿・校正+自社編集チェックリストの型化(プロンプト資産化)。</p>
+        <span class="f-label">想定される課題と対策</span>
+        <p class="f-val">文体・事実確認の品質担保→「AIツール単体」ではなく「AI+プロ編集の監修」をセット販売し、純ツール競争を避ける。</p>
+      </div>
     </article>
+
     <div class="stub-block">
-      <h4>簡易リスト(C-6〜C-10)</h4>
+      <h4>簡易リスト(C-6〜C-10)※絞り込み後に詳細化</h4>
       <div class="stub-list">
         <span><b>C-6</b>LP/バナーAI生成+AB運用</span>
         <span><b>C-7</b>風評監視AI</span>
@@ -516,28 +691,84 @@
         <h2>その他</h2>
       </div>
     </div>
+
     <article class="idea">
       <h3><span class="idea-no">D-1</span>教材IPホールディング化</h3>
-      <p>受託を「納品買切り」から「自社IP保持+ライセンス供与」へ契約転換し、教材・動画・システムの権利ポートフォリオを構築する事業方針の転換。今回の権利確認を機に、以後の全受託契約の標準方針とする。</p>
+      <p class="idea-lead">受託契約を「納品買切り」から「自社IP保持+ライセンス供与」へ転換し、教材・動画・システムの権利ポートフォリオを構築する。</p>
+      <div class="f-grid">
+        <span class="f-label">具体的な顧客イメージ</span>
+        <p class="f-val">本質は自社の契約方針転換。将来のライセンシーは教材・システムを低い初期費で使いたい企業・団体で、現在の受託顧客(団体)も「初期費を抑えたい」ニーズを持つ。</p>
+        <span class="f-label">顧客が得られる価値</span>
+        <p class="f-val">顧客は買切りより安い初期費で導入でき、法改正対応・改訂も継続的に受けられる。自社は同じ制作で収益が続く構造になり、企業価値も変わる。</p>
+        <span class="f-label">実現に必要な技術</span>
+        <p class="f-val">技術より契約・営業の転換。契約設計(弁護士)+権利管理台帳+ライセンス管理の仕組み。</p>
+        <span class="f-label">想定される課題と対策</span>
+        <p class="f-val">官公庁系の買切り慣行→買切りは高価/ライセンスは安価という価格設計で経済合理性から誘導。まず民間顧客から適用し、今回の権利確認を機に全受託契約の標準方針とする。</p>
+      </div>
     </article>
+
     <article class="idea">
       <h3><span class="idea-no">D-2</span>建設特化メディア&amp;リードジェン</h3>
-      <p>建設DX・外国人材の専門オウンドメディアを運営し、広告+ホワイトペーパー+送客で収益化。自社新サービスの顧客獲得装置を兼ねる。</p>
+      <p class="idea-lead">建設DX・外国人材の専門オウンドメディアを運営し、広告+ホワイトペーパー+送客で収益化する。</p>
+      <div class="f-grid">
+        <span class="f-label">具体的な顧客イメージ</span>
+        <p class="f-val">読者は建設中小の経営者・安全担当・外国人雇用担当。収益顧客は、その読者にリーチしたい建設SaaS・建機・保険・人材会社のマーケティング責任者で、「建設中小に届く広告チャネルがない」ことに困っている。</p>
+        <span class="f-label">顧客が得られる価値</span>
+        <p class="f-val">広告主は質の高いリード(資料DL・セミナー申込)を獲得。読者は現場目線の実務情報を無料で得られる。</p>
+        <span class="f-label">実現に必要な技術</span>
+        <p class="f-val">CMS+SEO+AI記事制作支援+リード管理(MA)。「建技人」等で培った編集部の取材力が品質の差別化要素。</p>
+        <span class="f-label">想定される課題と対策</span>
+        <p class="f-val">収益化まで1〜2年かかる→自社新サービス(A/B/C案)のリード獲得装置を兼ねる位置づけにし、投資回収を二重化する。</p>
+      </div>
     </article>
+
     <article class="idea">
       <h3><span class="idea-no">D-3</span>生成AI導入研修・伴走支援</h3>
-      <p>自社のAI活用実践を教材化した研修+導入伴走。研修は入口とし、月額の「AI活用顧問」を本命とする。</p>
+      <p class="idea-lead">自社のAI活用実践を教材化した研修と、月額の「AI活用顧問」を団体・中堅企業へ提供する。</p>
+      <div class="f-grid">
+        <span class="f-label">具体的な顧客イメージ</span>
+        <p class="f-val">既存顧客の団体事務局と、地方の中堅企業(50〜300名)の経営企画・総務。「経営からAI活用を求められたが、何から始めればよいか分からない」「セキュリティ・誤情報が不安で踏み出せない」。</p>
+        <span class="f-label">顧客が得られる価値</span>
+        <p class="f-val">ツール紹介ではなく「実際に業務が変わった事例」ベースで学べ、導入後も伴走されるため定着まで到達する。</p>
+        <span class="f-label">実現に必要な技術</span>
+        <p class="f-val">研修コンテンツ+自社運用LMS+ハンズオン環境+業務別導入テンプレート。C-4のAI動画化で教材を拡張。</p>
+        <span class="f-label">想定される課題と対策</span>
+        <p class="f-val">研修が単発で終わりがち→初回契約に月額「AI活用顧問」への導線を組み込む。講師リソースの限界は教材の動画化・テンプレート化で補う。</p>
+      </div>
     </article>
+
     <article class="idea">
       <h3><span class="idea-no">D-4</span>Web/システム調達の発注者側パートナー</h3>
-      <p>RFP作成支援の実績を発展させ、団体のシステム/Web調達に発注者側で伴走する月額顧問。受託事業と分離したブランドで利益相反を回避。</p>
+      <p class="idea-lead">団体のシステム/Web調達に発注者側で伴走する月額顧問(要件定義・RFP・業者選定・検収)。</p>
+      <div class="f-grid">
+        <span class="f-label">具体的な顧客イメージ</span>
+        <p class="f-val">システム/Webサイトのリプレイスを控えた団体・財団の事務局長。「IT担当がおらず、ベンダーの言い値と提案の妥当性を判断できない」「過去の発注で失敗した経験がある」。</p>
+        <span class="f-label">顧客が得られる価値</span>
+        <p class="f-val">RFP品質の向上により適正価格・適正スコープの調達が実現。検収まで伴走されるため、発注失敗・ベンダーロックインのリスクが減る。</p>
+        <span class="f-label">実現に必要な技術</span>
+        <p class="f-val">RFP作成支援の実績+ディレクション知見+AIによる要件整理・RFPドラフト・提案比較表の生成。</p>
+        <span class="f-label">想定される課題と対策</span>
+        <p class="f-val">自社受託事業との利益相反→別ブランド・別体制で運営し、「顧問先の案件は自社で受託しない」ルールを明示して中立性を担保する。</p>
+      </div>
     </article>
+
     <article class="idea">
       <h3><span class="idea-no">D-5</span>業界白書・調査データ事業</h3>
-      <p>「外国人材と安全教育白書」等をスポンサー+有料販売で発行し、年次刊行+データ購読のサブスクへ育てる。</p>
+      <p class="idea-lead">「外国人材と安全教育白書」等を年次発行し、スポンサー+有料販売+データ購読で収益化する。</p>
+      <div class="f-grid">
+        <span class="f-label">具体的な顧客イメージ</span>
+        <p class="f-val">建設関連の団体・メーカー・保険会社・行政の企画部門。「外国人材・安全教育に関する一次データが世になく、施策立案や営業資料の根拠が作れない」。</p>
+        <span class="f-label">顧客が得られる価値</span>
+        <p class="f-val">施策立案・営業・広報に引用できる独自の一次データとレポート。スポンサー企業は業界への発信力・ブランディングも得る。</p>
+        <span class="f-label">実現に必要な技術</span>
+        <p class="f-val">調査設計+AI集計・分析+編集・デザイン力。講習事業から得られる一次データ(匿名化)が独自性の源泉。</p>
+        <span class="f-label">想定される課題と対策</span>
+        <p class="f-val">単発刊行で終わりがち→年次刊行+データベース購読のサブスクへ育てる。データ利用は利用規約と匿名化基準を最初に整備し同意を設計する。</p>
+      </div>
     </article>
+
     <div class="stub-block">
-      <h4>簡易リスト(D-6〜D-10)</h4>
+      <h4>簡易リスト(D-6〜D-10)※絞り込み後に詳細化</h4>
       <div class="stub-list">
         <span><b>D-6</b>補助金支援バンドル</span>
         <span><b>D-7</b>外国人材コミュニティ</span>
@@ -628,6 +859,7 @@
   <footer class="doc-foot">
     <p>
       全文はリポジトリ <code>docs/01_資産分析と新規事業アイデア第1弾ドラフト.md</code>(ブランチ: <code>claude/web-agency-new-business-ideas-wt0no5</code>)を参照。<br>
+      簡易リスト(各カテゴリ6〜10)は方向性の絞り込み後、必要に応じて同粒度まで詳細化する。<br>
       次のステップ: 残論点の確認 → 本命①②の深掘り(市場規模・収益シミュレーション・ロードマップ)→ 合意後に編集可能なPowerPoint提案書を制作。
     </p>
   </footer>
